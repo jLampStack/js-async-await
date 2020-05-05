@@ -1,0 +1,53 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #3a3a3a;
+  line-height: 1.33;
+}
+
+body {
+  padding: 0 12vw;
+  margin: 0;
+  background: #08a;
+}
+
+.container {
+  background: white;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  padding: 15px 20px;
+  font-weight: 400;
+}
+
+li:nth-child(even) {
+  background: #e8e8e8;
+}
+
+li > span {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+
+.important {
+  margin-bottom: 0;
+  color: red;
+  padding: 16px 20px 16px 20px;
+  background: none;
+  border: 2px solid rgb(248, 96, 96);
+}
+
+.important > span {
+  font-weight: 700;
+}
