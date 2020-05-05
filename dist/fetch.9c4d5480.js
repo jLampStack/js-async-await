@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/main.js":[function(require,module,exports) {
+})({"js/fetch.js":[function(require,module,exports) {
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -134,25 +134,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 // Init array to store posts
 var posts = [];
 /**
- * 
- *  EXACTLY SAME CODE AS BEFORE (PROMISES)
- * 
- *  1) Loops thru posts[] grabbing its properties
- *  2) Stores each post to output
- *  3) Dom renders renders HTML output to screen
- * 
- */
-
-function getPosts() {
-  var output = "";
-  setTimeout(function () {
-    posts.forEach(function (post) {
-      output += "<li>\n          <span>\n            ".concat(post.title, "\n          </span><BR>\n          ").concat(post.body, "<BR>\n          </li>");
-    });
-    document.querySelector('#posts').innerHTML = output;
-  }, 1000);
-}
-/**
  *  
  *  EXACTLY SAME CODE AS BEFORE (PROMISES)
  * 
@@ -160,7 +141,6 @@ function getPosts() {
  *  Only the way we handle the response changes
  *  
  */
-
 
 function createPost(post) {
   return new Promise(function (resolve, reject) {
@@ -178,7 +158,7 @@ function createPost(post) {
 }
 /**
  *  
- *  ASYNC / AWAIT 
+ *  ASYNC / AWAIT  with fetch()
  * 
  *  1) async and await are used together
  *  2) async keyword is required in front of a function declaration to turn it into an async function
@@ -188,73 +168,47 @@ function createPost(post) {
  */
 
 
-function init() {
-  return _init.apply(this, arguments);
-}
+function fetchUsers() {
+  return _fetchUsers.apply(this, arguments);
+} // Invoke function to get users list
 
-function _init() {
-  _init = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+
+function _fetchUsers() {
+  _fetchUsers = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    var res, data, outputHTML;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return createPost({
-              title: 'Post One',
-              body: 'This is post one'
-            }) // Traversy never used the catch but it appears they can be used together
-            .catch(function (e) {
-              return console.error('Error: ' + e);
-            });
+            return fetch('https://jsonplaceholder.typicode.com/users');
 
           case 2:
-            getPosts();
+            res = _context.sent;
+            _context.next = 5;
+            return res.json();
 
-          case 3:
+          case 5:
+            data = _context.sent;
+            console.log(data); // outputHTML was not taught by Traversy. This is me adding to the project
+
+            outputHTML = "";
+            data.forEach(function (user) {
+              outputHTML += "\n        <li>\n          <b>ID:</b> ".concat(user.id, "<BR>\n          <b>Name:</b> ").concat(user.name, "<BR>\n          <b>Company:</b> ").concat(user.company.name, "<BR>\n          <b>Email:</b> ").concat(user.email, "<BR>\n          <b>Website:</b> ").concat(user.company.website, "\n        \n        </li>\n    ");
+            });
+            document.querySelector('#users').innerHTML = outputHTML;
+
+          case 10:
           case "end":
             return _context.stop();
         }
       }
     }, _callee);
   }));
-  return _init.apply(this, arguments);
+  return _fetchUsers.apply(this, arguments);
 }
 
-init(); // createPost({ title: 'Post Seven', body: 'This is post seven' } )
-//   .then( getPosts )
-//   .catch( e => console.error( Error(e) ));
-
-/**
- *  PART 2: Promise.all( [promise1, promise2, etc.] ) 
- * 
- *  Accepts an array
- */
-//  const promise1 = Promise.resolve('Hello World');
-//  const promise2 = 12345;
-//  const promise3 = new Promise( (resolve, reject) => setTimeout(resolve, 3250, 'Adios Amigo!') );
-
-/**
- *  PART 4: fetch()
- * 
- *  res is common shorthand for response
- * 
- *  IMPORTANT: fetch alone only returns info about the function that is used
- *  to format JSON. It still works but doesn't return the info we're after
- *  To parse it to be readable we must chani .then()
- * 
- */
-//  const promise4 = fetch
-//     ('https://jsonplaceholder.typicode.com/users')
-//         .then(  res => res.json() );
-//  // Takes however long the longest promise is to return all the values which is 3250
-//  Promise.all([ promise1, promise2, promise3, promise4 ])
-//   .then( (values) => console.log(values));
-
-/**
- *  PART 4: fetch
- * 
- *  Need to chain 2 fetches in a row to use fetch
- */
+fetchUsers();
 },{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -459,5 +413,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/main.js"], null)
-//# sourceMappingURL=/main.fb6bbcaf.js.map
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/fetch.js"], null)
+//# sourceMappingURL=/fetch.9c4d5480.js.map

@@ -13,13 +13,25 @@
 
     <p class="important">
       <span>IMPORTANT:</span>
-      main.js has const error; set to true in order to demonstrate error handling. Set this to false to remove errors.
+      <a target="_blank" href="https://babeljs.io/docs/en/babel-standalone">Babel</a> is required to transpile JavaScript for browsers to be able to read.
+      Scroll to bottom of index.html file to view.<BR><BR>
+      
+      There are two different scripts at bottom of index.html. One is for the async & await, and the other is for fetch. This is only done to keep the files clean and to be able to cross-reference files to view the differences.
     </p>
 
+    
     <ul id="posts"></ul>
+
+    <ul id="users"></ul>
+
+
   </div>
 
+  <!-- Load Babel -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <script src="./js/main.js"></script>
+  <script type="text/babel" src="./js/async-await.js"></script>
+  <script type="text/babel" src="./js/fetch.js"></script>
+
 </body>
 </html>

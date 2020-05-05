@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/main.js":[function(require,module,exports) {
+})({"js/async-await.js":[function(require,module,exports) {
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -166,7 +166,7 @@ function createPost(post) {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       posts.push(post);
-      var error = true;
+      var error = false;
 
       if (!error) {
         resolve();
@@ -190,7 +190,8 @@ function createPost(post) {
 
 function init() {
   return _init.apply(this, arguments);
-}
+} // Invoke function to grab user list
+
 
 function _init() {
   _init = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
@@ -220,41 +221,7 @@ function _init() {
   return _init.apply(this, arguments);
 }
 
-init(); // createPost({ title: 'Post Seven', body: 'This is post seven' } )
-//   .then( getPosts )
-//   .catch( e => console.error( Error(e) ));
-
-/**
- *  PART 2: Promise.all( [promise1, promise2, etc.] ) 
- * 
- *  Accepts an array
- */
-//  const promise1 = Promise.resolve('Hello World');
-//  const promise2 = 12345;
-//  const promise3 = new Promise( (resolve, reject) => setTimeout(resolve, 3250, 'Adios Amigo!') );
-
-/**
- *  PART 4: fetch()
- * 
- *  res is common shorthand for response
- * 
- *  IMPORTANT: fetch alone only returns info about the function that is used
- *  to format JSON. It still works but doesn't return the info we're after
- *  To parse it to be readable we must chani .then()
- * 
- */
-//  const promise4 = fetch
-//     ('https://jsonplaceholder.typicode.com/users')
-//         .then(  res => res.json() );
-//  // Takes however long the longest promise is to return all the values which is 3250
-//  Promise.all([ promise1, promise2, promise3, promise4 ])
-//   .then( (values) => console.log(values));
-
-/**
- *  PART 4: fetch
- * 
- *  Need to chain 2 fetches in a row to use fetch
- */
+init();
 },{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -459,5 +426,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/main.js"], null)
-//# sourceMappingURL=/main.fb6bbcaf.js.map
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/async-await.js"], null)
+//# sourceMappingURL=/async-await.50dd66c8.js.map

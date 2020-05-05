@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Promises</title>
+  <title>Async Await</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.b61e60ae.css">
 <script src="/styles.b61e60ae.js"></script></head>
@@ -13,13 +13,25 @@
 
     <p class="important">
       <span>IMPORTANT:</span>
-      main.js has const error; set to true in order to demonstrate error handling. Set this to false to remove errors.
-    </p>
+      <a target="_blank" href="https://babeljs.io/docs/en/babel-standalone">Babel</a> is required to transpile JavaScript for browsers to be able to read.
+      Scroll to bottom of index.html file to view.<BR><BR>
+      
+      There are two different scripts at bottom of index.html. One is for the async & await, and the other is for fetch. This is only done to keep the files clean and to be able to cross-reference files to view the differences.
+    </BR></BR></p>
 
+    
     <ul id="posts"></ul>
+
+    <ul id="users"></ul>
+
+
   </div>
 
+  <!-- Load Babel -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <script src="/main.fb6bbcaf.js"></script>
+  <script type="text/babel" src="/async-await.50dd66c8.js"></script>
+  <script type="text/babel" src="/fetch.9c4d5480.js"></script>
+
 </body>
 </html>
