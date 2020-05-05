@@ -72,8 +72,7 @@ async function fetchUsers() {
           <b>Name:</b> ${user.name}<BR>
           <b>Company:</b> ${user.company.name}<BR>
           <b>Email:</b> ${user.email}<BR>
-          <b>Website:</b> ${user.company.website}
-        
+          <b>Website:</b> ${user.website}
         </li>
     `;
   });
